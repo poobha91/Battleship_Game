@@ -1,0 +1,149 @@
+/*
+@Author: POOBHARATHII AL BALAKRISHNAN, NITYANANTHEN AL MUNIANDY, VIKNESVARAN AL RAVICHANDRAN
+@Title: Battleship game in Java
+ */
+package View;
+import Model.ModelBattleship;
+
+public class BattleshipView
+{
+    protected static ModelBattleship mb = new ModelBattleship();
+    //create an empty Map for the game
+    public static void createMap()
+    {
+        //first columns
+        System.out.println("\t\t X-axis Coordinates");
+        System.out.print("\t");
+        for(int i =0; i < mb.oceanCols; i++)
+        {
+            if(mb.oceanCols != 9)
+            {
+                System.out.print(" " + i + " ");
+            }
+            else
+            {
+                System.out.print(" " + i);
+            }
+        }
+        System.out.println();
+
+        //left & right side rows
+        for(int i=0; i < mb.tenBytenGrid.length; i++)
+        {
+            for(int j=0; j < mb.tenBytenGrid[i].length; j++)
+            {
+                mb.tenBytenGrid[i][j] = "   ";
+                if(j == 0)
+                {
+                    System.out.print(i + " | " + mb.tenBytenGrid[i][j]);
+                }
+                else if (j == (mb.tenBytenGrid[i].length - 1))
+                {
+                    System.out.print(mb.tenBytenGrid[i][j] + " | " + i);
+                }
+                else
+                {
+                    System.out.print(mb.tenBytenGrid[i][j]);
+                }
+            }
+            System.out.println();
+        }
+
+        //bottom column
+        System.out.print("\t");
+        for(int i =0; i < mb.oceanCols; i++)
+        {
+            if(mb.oceanCols != 9)
+            {
+                System.out.print(" " + i + " ");
+            }
+            else
+            {
+                System.out.print(" " + i);
+            }
+        }
+        System.out.println();
+        System.out.println("\t\t X-axis Coordinates");
+    }
+    //print out the Ocean map and updated map
+    public static void printMap()
+    {
+        //first columns
+        System.out.println("\t\t X-axis Coordinates");
+        System.out.print("\t");
+        for(int i =0; i < mb.oceanCols; i++)
+        {
+            if(mb.oceanCols != 9)
+            {
+                System.out.print(" " + i + " ");
+            }
+            else
+            {
+                System.out.print(" " + i);
+            }
+        }
+        System.out.println();
+
+        //left & right side rows
+        for(int i=0; i < mb.tenBytenGrid.length; i++)
+        {
+            for(int j=0; j < mb.tenBytenGrid[i].length; j++)
+            {
+                if(j == 0)
+                {
+                    System.out.print(i + " | " + mb.tenBytenGrid[i][j]);
+                }
+                else if (j == (mb.tenBytenGrid[i].length - 1))
+                {
+                    System.out.print(mb.tenBytenGrid[i][j] + " | " + i);
+                }
+                else
+                {
+                    System.out.print(mb.tenBytenGrid[i][j]);
+                }
+            }
+            System.out.println();
+        }
+
+        //bottom column
+        System.out.print("\t");
+        for(int i =0; i < mb.oceanCols; i++)
+        {
+            if(mb.oceanCols != 9)
+            {
+                System.out.print(" " + i + " ");
+            }
+            else
+            {
+                System.out.print(" " + i);
+            }
+        }
+        System.out.println();
+        System.out.println("\t\t X-axis Coordinates");
+
+        System.out.println("----------------INDEX----------------");
+        System.out.println("| '@' -> Player Ships               |" );
+        System.out.println("| '$' -> Computer Ships             |" );
+        System.out.println("| 'X' -> Player Attack Success      |" );
+        System.out.println("| '#' -> Computer Attack Success    |" );
+        System.out.println("| '=' -> Player Attack Own Ship     |" );
+        System.out.println("| '*' -> Computer Attack Own Ship   |" );
+        System.out.println("| '!' -> Player missed              |" );
+        System.out.println("| '/' -> Computer missed            |" );
+        System.out.println("-------------------------------------");
+    }
+    //print the game score
+    public static void gameScore()
+    {
+        System.out.println("\t\tPlayer ships: " + mb.player + " | Computer Ships: " + mb.computer);
+        if(mb.player > 0 && mb.computer <= 0)
+        {
+            System.out.println("Yeay!! player you won the game. Congratulation!!");
+        }
+        else if(mb.computer > 0 && mb.player <= 0)
+        {
+            System.out.println("You Lost!! Computer Won this time");
+        }
+        System.out.println("\n\n\n\n\n\n\n\n"); //to create space
+    }
+}
